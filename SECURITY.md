@@ -24,15 +24,16 @@ bounty or guaranteed response time.
 
 In scope:
 
-- Android shell, wallet bridge, WebView isolation, update verification
-- On-chain Web build and verification paths
-- Build/release scripts in this repository
+- TapeRelay client upload/read/delete flows
+- Encrypted file format, key handling, and session authorization
+- Object lifecycle, manifests, and release behavior
+- Client source, verification scripts, and build scripts in this repository
 
 Out of scope:
 
-- Third-party websites loaded in site windows
-- Compromised wallets, RPC providers, or user devices
-- Social engineering and physical access
+- Worker server, D1 control plane, and Cloudflare configuration
+- Relay operator infrastructure and third-party RPC/storage providers
+- Android shell, Web frontend, user devices, and social engineering
 
 Never include private keys, seed phrases, session tokens, or exported browser
 profiles in a report.
