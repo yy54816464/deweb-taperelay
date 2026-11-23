@@ -1,0 +1,38 @@
+name: TapeRelay checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: taperelay-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Syntax check
+        run: |
+          for f in src/*.mjs scripts/*.mjs tape-direct-src.js; do
+            echo "checking $f"
+            node --check "$f"
+          done
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=critical
