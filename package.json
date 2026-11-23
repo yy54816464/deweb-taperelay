@@ -1,0 +1,21 @@
+{
+  "name": "deweb-taperelay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "verify": "node scripts/verify-files.mjs",
+    "verifyEncrypted": "node scripts/verify-encrypted.mjs",
+    "build:tape-direct": "node scripts/build-tape-direct.mjs"
+  },
+  "dependencies": {
+    "@taperelay/client": "latest",
+    "@tapestore/client": "latest"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

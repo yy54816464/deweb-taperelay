@@ -1,0 +1,11 @@
+.env
+*.env
+node_modules/
+provider-result.json
+pilot-result.json
+verify-files-result.json
+verify-encrypted-result.json
+encrypted.log
+
+tb-*.js
+tape-direct.bundle.new.js
